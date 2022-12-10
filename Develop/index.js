@@ -36,12 +36,14 @@ inquirer
     type: 'input',
     message: 'Are there any test instructions',
     name: 'tests',
+    validate: (value)=>{if (value){return true}else {return "Please select a license to continue"}},
 },
 {
     type: 'list',
     message: 'Choose a Github license',
     name: 'license',
-    choices: ['apache license 2.0', 'Do What The F*ck You Want To Public License', 'Open Software License 3.0']
+    choices: ['apache license 2.0', 'Do What The F*ck You Want To Public License', 'Open Software License 3.0'],
+    // validate: (value)=>{if (value){return true}else {return "Please select a license to continue"}},
 },
 {
     type: 'input',
@@ -54,18 +56,25 @@ inquirer
     name: 'email',
 },
 ])
+//.then function that takes user input and puts it in a variable that uses a template literal
+// so i can pass it as my second argument in my fs.writefile
 .then((response) => {
 console.log("USER ANSWERS", response);
-const userAnswers = `Project Title: ${response.title}
-Project Description: ${response.description}
-Installation Info: ${response.install}
-Usage Info: ${response.usage}
-Contributing Guidelines: ${response.guidelines}
-Test Instructions: ${response.tests}
-Github License: ${response.license}
-Github Username: ${response.username}
-Email Address: ${response.email}`
+const userAnswers = `# ${response.title}
 
+* [Project Description] ${response.description}
+* [Installation Info] ${response.install}
+* [Usage Info] ${response.usage}
+* [Contributing Guidelines] ${response.guidelines}
+* [Test Instructions] ${response.tests}
+
+## License
+Github License: ${response.license}
+
+# Questions
+* Github Username: ${response.username}
+* Email Address: ${response.email}`
+// fs write file to right the user responses to a markdown file.
 fs.writeFile('readme.md', userAnswers, (error) => {
 if (error) {
   console.log("Error:", error);

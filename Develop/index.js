@@ -36,13 +36,12 @@ inquirer
     type: 'input',
     message: 'Are there any test instructions',
     name: 'tests',
-    validate: (value)=>{if (value){return true}else {return "Please select a license to continue"}},
 },
 {
     type: 'list',
     message: 'Choose a Github license',
     name: 'license',
-    choices: ['apache license 2.0', 'Do What The F*ck You Want To Public License', 'Open Software License 3.0'],
+    choices: ['apache license 2.0', 'The Unlicense', 'The MIT License'],
     // validate: (value)=>{if (value){return true}else {return "Please select a license to continue"}},
 },
 {
@@ -62,16 +61,29 @@ inquirer
 console.log("USER ANSWERS", response);
 const userAnswers = `# ${response.title}
 
-* [Project Description] ${response.description}
-* [Installation Info] ${response.install}
-* [Usage Info] ${response.usage}
-* [Contributing Guidelines] ${response.guidelines}
-* [Test Instructions] ${response.tests}
+## Project Description - ${response.description}
+
+# Table of Contents
+1. [Installation Info](#Installation-Info)
+2. [Usage Info](#Usage-Info)
+3. [Contributing Guidelines](#Contributing-Guidelines)
+4. [Test Instructions](#Test-Instructions)
+5. [License](#License)
+6. [Questions](#Questions)
+
+## Installation Info - ${response.installation}
+
+## Usage Info - ${response.usage}
+
+## Contributing Guidelines - ${response.contributing}
+
+## Test Instructions- ${response.tests}
 
 ## License
 Github License: ${response.license}
 
-# Questions
+
+## Questions
 * Github Username: ${response.username}
 * Email Address: ${response.email}`
 // fs write file to right the user responses to a markdown file.
@@ -95,3 +107,11 @@ function init() {}
 
 // Function call to initialize app
 init();
+
+
+// [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+// [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+
+// [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+

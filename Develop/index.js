@@ -41,7 +41,7 @@ inquirer
     type: 'list',
     message: 'Choose a Github license',
     name: 'license',
-    choices: ['apache license 2.0', 'The Unlicense', 'The MIT License'],
+    choices: ['apache license 2.0', 'The Unlicense', 'The MIT License', "None"],
     // validate: (value)=>{if (value){return true}else {return "Please select a license to continue"}},
 },
 {
@@ -61,7 +61,7 @@ inquirer
 console.log("USER ANSWERS", response);
 const userAnswers = `# ${response.title}
 
-## Project Description - ${response.description}
+# Project Description - ${response.description}
 
 # Table of Contents
 1. [Installation Info](#Installation-Info)
@@ -71,19 +71,19 @@ const userAnswers = `# ${response.title}
 5. [License](#License)
 6. [Questions](#Questions)
 
-## Installation Info - ${response.installation}
+# Installation Info - ${response.installation}
 
-## Usage Info - ${response.usage}
+# Usage Info - ${response.usage}
 
-## Contributing Guidelines - ${response.contributing}
+# Contributing Guidelines - ${response.contributing}
 
-## Test Instructions- ${response.tests}
+# Test Instructions- ${response.tests}
 
-## License
+# License
 Github License: ${response.license}
 
 
-## Questions
+# Questions
 * Github Username: ${response.username}
 * Email Address: ${response.email}`
 // fs write file to right the user responses to a markdown file.
@@ -96,6 +96,25 @@ if (error) {
 });
 });
 
+function renderLicenseBadge(license) {
+  if (license !=="None") {
+    return `![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`;
+  }
+  return "";
+};
+
+function renderLicenseLink(license) {
+  if (license !=="None") {
+    return `http://opensource.org/licenses/${license})`
+  }
+  return "";
+};
+
+// function renderLicenseSection(license) {
+//   if (license !=="None") {
+//     return `#license`
+//   }
+// }
 
 
 

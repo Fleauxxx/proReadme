@@ -1,7 +1,7 @@
-# foo
+# pro
   
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-## Project Description - lal
+[![License: The MIT License](https://img.shields.io/badge/License-The MIT License-blue.svg)](https://opensource.org/licenses/The MIT License)
+## Project Description - foolala
 
 ## Table of Contents
 * [Installation Info](#installation-info)
@@ -13,9 +13,9 @@
 
 [The MIT License]http://opensource.org/licenses/The MIT License)
 
-## Installation Info - dkdk
+## Installation Info - npm
 
-## Usage Info - kdkdk
+## Usage Info - persona
 
 
   ## [License](#table-of-contents)
@@ -23,9 +23,9 @@
   [The MIT License]http://opensource.org/licenses/The MIT License)
     
 
-## Contributing Guidelines - jfjf
+## Contributing Guidelines - feel free
 
-## Test Instructions- jfjfs
+## Test Instructions- no test instructions
 
 ## License
 Github License: The MIT License

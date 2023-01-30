@@ -11,7 +11,6 @@ inquirer
     message: 'What is the name of your project?',
     name: 'title',
   },
-  
   {
     type: 'input',
     message: 'Give a description of your project',
@@ -60,6 +59,7 @@ inquirer
 // so i can pass it as my second argument in my fs.writefile
 .then((response) => {
   const markdown = generateMarkdown(response);
+
   // fs write file to right the user responses to a markdown file.
   fs.writeFile('readme.md', markdown, (error) => {
     if (error) {
@@ -68,4 +68,5 @@ inquirer
       console.log("Markdown Generated")
     }
   });
-  });
+});
+
